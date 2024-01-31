@@ -62,10 +62,15 @@ class PostController extends Controller
     }
 
     public function check(Request $request) {
-        $posts = Post::where('title', 'LIKE', "%{ $request->keyword }%")->get();
 
-        return redirect()->route('search.posts', $posts);
+        // $query = Post::query();
+        // $posts = $query->where('title', 'LIKE', '%'.$request->keyword.'%')->get();
+
+        $posts = Post::where('title', 'LIKE', '%'.$request->keyword.'%')->get();
+
+
+        // return redirect()->route('search.posts', $posts);
         // return view('posts.search', compact('post'));
-        // return view('posts.search')->with(['posts' => $posts]);
+        return view('posts.search')->with(['posts' => $posts]);
     }
 }

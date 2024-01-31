@@ -13,12 +13,12 @@
 
     <h1>検索結果</h1>
         <ul>
-        @if(isset($posts)) {
+        @if(isset($posts)) 
             @foreach ($posts as $post)
                 <li>
                     <a href="{{ route('text.posts', $post->id ) }}">{{ $post->title }}</a>
                 </li>
             @endforeach
-        }@endif
+        @endif
         </ul>
 </x-layout>
